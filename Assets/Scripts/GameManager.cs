@@ -12,44 +12,29 @@ public class GameManager : MonoBehaviour {
 
     public int state = 0;
 
-    void Connect()
-    {
+    void Connect(){
         //Connection method to be added
-        PhotonNetwork.ConnectToBestCloudServer("V1.0");
+        PhotonNetwork.ConnectToBestCloudServer("V1.0"); //Connects to "Version"
         state = 1;
     }
 
-    void OnJoinedLobby()
-    {
+    void OnJoinedLobby(){
         state = 1;
     }
-
-    void OnPhtonRandomJoinFailed()
-    {
-        PhotonNetwork.CreateRoom(null);
-    }
-
-    void OnJoinedRoom()
-    {
+    
+    void OnJoinedRoom(){
         state = 2;
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-	}
+    void OnPhtonRandomJoinFailed(){
+        PhotonNetwork.CreateRoom(null);
+    }
 
     private void OnGUI()
     {
         switch (state)
         {
             case 0:
-                //Start menu
+                //Game type select
                 if (GUI.Button(new Rect(10, 10, 100, 30), "Connect"))
                 {
                     Connect();
@@ -75,23 +60,13 @@ public class GameManager : MonoBehaviour {
                 break;
         }
 
-        void Spawn(bool team, string character)
-        {
+        void Spawn(bool team, string character){
             state = 3;
-            string side = "ERROR";
-            if (team == true)
-            {
-                side = "Blue";
-            }
-            else if (team == false)
-            {
-                side = "Red";
-            }
-            else
-            {
-                Exception();
-            }
-            Debug.Log("You are on " + side + " and you are playing " + character);
+
+            GameObject Player = PhotonNetwork.Instantiate(character, new Vector3(), new Quaternion(), 0); //Connect vector to a spawn cord and Quaternion to a set rotation for the chosen spawn   
+            Player.GetComponent<CharacterController>().enabled = true; // Enable character controller locally
+            //Player.GetComponent<MouseController>().enabled = true; // Enable mouse controls locally
+            //Player.GetComponent<CharacterMotor>().enabled = true; // Enable character movement locally 
         }
     }
 
@@ -99,5 +74,15 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("Game Manager error");
         throw new NotImplementedException();
-    }
+    }    
+    
+    // Use this for initialization
+    void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        
+	}
 }
