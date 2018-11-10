@@ -8,6 +8,10 @@ public class MainMenu : MonoBehaviour {
     public void PlayGame()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PhotonNetwork.ConnectUsingSettings("V1.0a");
+        Debug.Log("Connected");
+        PhotonNetwork.JoinLobby();
+        Debug.Log("In Lobby");
         SceneManager.LoadScene("Lobby");
     }
 
