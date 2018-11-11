@@ -9,6 +9,7 @@ public class ClientManager : MonoBehaviour {
     public void ExitLobby()
     {
         PhotonNetwork.LeaveLobby();
+        PhotonNetwork.Disconnect();
         Debug.Log("Exiting Lobby");
         SceneManager.LoadScene("Menu");
         
