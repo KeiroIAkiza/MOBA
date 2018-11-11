@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChampionSelect.unity
     guid: ba955e5ceb936784086ac30a2b95e997
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 83c499619b35cf849ad299325ac2e3df
   m_configObjects: {}
