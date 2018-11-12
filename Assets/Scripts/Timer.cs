@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour {
     {
         countDownTime = 5;//30;//this is ban phase
         timerText.text = countDownTime.ToString();
+        Debug.Log("Entering champ select");
     }
 
     public void Update()
@@ -24,7 +25,7 @@ public class Timer : MonoBehaviour {
             case 0://Ban phase
                 countDownTime -= Time.deltaTime;
                 timerText.text = countDownTime.ToString("0.");
-                Debug.Log(countDownTime.ToString("0."));
+                //Debug.Log(countDownTime.ToString("0."));
                 if (countDownTime < 0)
                 {
                     stage = 1;
@@ -36,7 +37,7 @@ public class Timer : MonoBehaviour {
             case 1://Pick phase
                 countDownTime -= Time.deltaTime;
                 timerText.text = countDownTime.ToString("0.");
-                Debug.Log(countDownTime.ToString("0."));
+                //Debug.Log(countDownTime.ToString("0."));
                 if (countDownTime < 0)
                 {
                     stage = 2;
@@ -48,7 +49,7 @@ public class Timer : MonoBehaviour {
             case 2://End phase
                 countDownTime -= Time.deltaTime;
                 timerText.text = countDownTime.ToString("0.");
-                Debug.Log(countDownTime.ToString("0."));
+                //Debug.Log(countDownTime.ToString("0."));
                 if (countDownTime < 0)
                 {
                     LoadMatch();

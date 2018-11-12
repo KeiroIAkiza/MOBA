@@ -5,17 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-    public void PlayGame()
+    void Start()
     {
         PhotonNetwork.ConnectUsingSettings("V1.0a");//Lines to be moved
-        Debug.Log("Connected");                     //to login scene
-        PhotonNetwork.JoinLobby();
-        Debug.Log("In Lobby");
-        SceneManager.LoadScene("Lobby");
+        Debug.Log("Connected");                     //to login scene       
     }
 
     public void QuitGame()
     {
+        PhotonNetwork.Disconnect();
         Debug.Log("Quit");
         Application.Quit();
     }
