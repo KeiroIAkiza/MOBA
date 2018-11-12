@@ -131,8 +131,8 @@
     <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
     <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
     <Compile Include="Assets\Scripts\ChampionSelect.cs" />
-    <Compile Include="Assets\Scripts\ClientManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\RecievedMovement.cs" />
     <Compile Include="Assets\Scripts\SendInfo.cs" />
     <Compile Include="Assets\Scripts\SettingsMenu.cs" />
